@@ -8,7 +8,7 @@ async function connectar(){
 }
 
 async function salvar(obj){
-    const saida = await client.set(obj.email, JSON.stringify(obj));
+    const saida = await client.set(obj.email, JSON.stringify(obj),{EX: 30});
     console.log(saida);
 }
 
@@ -23,6 +23,6 @@ const objeto = {
 }
 
 connectar();
-// salvar(objeto);
-buscar('paulo@gmail.com');
+salvar(objeto);
+// buscar('paulo@gmail.com');
 
